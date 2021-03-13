@@ -24,10 +24,14 @@ export class TodosComponent implements OnInit {
     ];
   }
 
-  toggleDone(id) {
+  toggleDone(id: number) {
     this.todos.map((value, index) => {
       if (index == id) value.completed = !value.completed;
       return value;
     });
+  }
+
+  deleteTodo(id: number) {
+    this.todos = this.todos.filter((value, index) => index !== id);
   }
 }
